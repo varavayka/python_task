@@ -54,3 +54,66 @@ def sum_sub(list_nums, count=0, result=[], positive_numbers=[]):
     return sum_sub(list_nums, count + 1)
 
 print('Сумма нечётных чисел и вычитание чётных чисел:', sum_sub([1,2,3,4,5]) ) 
+
+
+
+def is_palindrome(str, count=0, result= []):
+    
+    if len(str) == count :
+        initial_state = ''.join(result)
+        result.reverse()
+        reverse_state = ''.join(result)
+        return initial_state == reverse_state
+    
+    result.append(str[count])
+    return is_palindrome(str, count + 1)
+
+
+print('Проверка на слово палиндром:', is_palindrome('abba'))
+
+
+
+def is_pal(str, count=0, result= []):
+    str = str.replace(' ', '')
+    
+    if len(str) == count :
+        initial_state = ''.join(result)
+        result.reverse()
+        reverse_state = ''.join(result)
+        return initial_state == reverse_state
+    
+    result.append(str[count])
+    return is_pal(str, count + 1)
+print('проверка на слово палиндром и игнорирование пробелов:',is_pal('                  a bb a'))
+
+
+
+
+def remove_vowels(str, count=0, list_result=[]):
+    vowels = ['a', 'e', 'i', 'o', 'u', 'y']
+    
+    if len(str) == count:
+        return ''.join(list_result)
+    if not vowels.count(str[count]):
+        list_result.append(str[count])
+    return remove_vowels(str, count + 1)
+
+print('Вернутся только согласные буквы:',remove_vowels('banana'))
+
+
+def double(str, count=0, result=''):
+    
+    if len(str) == count: return result
+    return double(str, count + 1, result +str[count] * 2)
+
+print(double('zz'))
+
+
+
+
+def fib(n):
+    if n == 1 or n == 0: return n
+    return fib(n - 1) + fib(n - 2)
+    
+
+print(fib(9))
